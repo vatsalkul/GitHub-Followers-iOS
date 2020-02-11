@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		832BD9AC23F2DA9A008D08B9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832BD9AB23F2DA9A008D08B9 /* NetworkManager.swift */; };
+		832BD9AF23F2E3A0008D08B9 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832BD9AE23F2E3A0008D08B9 /* ErrorMessage.swift */; };
+		832BD9B223F2E974008D08B9 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832BD9B123F2E974008D08B9 /* FollowerCell.swift */; };
+		832BD9B523F2E9F8008D08B9 /* GFAvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832BD9B423F2E9F8008D08B9 /* GFAvatarImage.swift */; };
 		8372DC4723F152D300285FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372DC4623F152D300285FCE /* AppDelegate.swift */; };
 		8372DC4923F152D300285FCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372DC4823F152D300285FCE /* SceneDelegate.swift */; };
 		8372DC4E23F152D300285FCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8372DC4C23F152D300285FCE /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		832BD9AB23F2DA9A008D08B9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		832BD9AE23F2E3A0008D08B9 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		832BD9B123F2E974008D08B9 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
+		832BD9B423F2E9F8008D08B9 /* GFAvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImage.swift; sourceTree = "<group>"; };
 		8372DC4323F152D300285FCE /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8372DC4623F152D300285FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8372DC4823F152D300285FCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,30 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		832BD9AD23F2E384008D08B9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				832BD9AE23F2E3A0008D08B9 /* ErrorMessage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		832BD9B023F2E94D008D08B9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				832BD9B123F2E974008D08B9 /* FollowerCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		832BD9B323F2E9DB008D08B9 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				832BD9B423F2E9F8008D08B9 /* GFAvatarImage.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		8372DC3A23F152D300285FCE = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +116,7 @@
 		8372DC4523F152D300285FCE /* GHFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				832BD9AD23F2E384008D08B9 /* Utilities */,
 				832BD9AA23F2DA86008D08B9 /* Managers */,
 				8372DC7423F18BA900285FCE /* Model */,
 				8372DC7123F1880400285FCE /* Extensions */,
@@ -114,6 +145,8 @@
 		8372DC6D23F187E200285FCE /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				832BD9B323F2E9DB008D08B9 /* Image */,
+				832BD9B023F2E94D008D08B9 /* Cell */,
 				8372DC7323F1884D00285FCE /* ViewControllers */,
 				8372DC7223F1881F00285FCE /* Text Fields */,
 				8372DC6F23F187F500285FCE /* Buttons */,
@@ -250,6 +283,9 @@
 				8372DC6B23F17E6D00285FCE /* UIViewController+Ext.swift in Sources */,
 				8372DC5F23F15D2B00285FCE /* GFButton.swift in Sources */,
 				8372DC6323F16C5900285FCE /* FollowerListVC.swift in Sources */,
+				832BD9B223F2E974008D08B9 /* FollowerCell.swift in Sources */,
+				832BD9AF23F2E3A0008D08B9 /* ErrorMessage.swift in Sources */,
+				832BD9B523F2E9F8008D08B9 /* GFAvatarImage.swift in Sources */,
 				8372DC5D23F1572F00285FCE /* FavouritesListVC.swift in Sources */,
 				8372DC7623F18BBD00285FCE /* Follower.swift in Sources */,
 				8372DC6923F1768B00285FCE /* GFAlertVC.swift in Sources */,

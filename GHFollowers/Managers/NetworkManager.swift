@@ -12,27 +12,27 @@ class NetworkManager {
     static let shared = NetworkManager()
     let baseUrl = "https://api.github.com/users/"
     
-    func getFollowers(forUserName: String, page: Int, completed: @escaping ([Follower]?, String?) -> Void) {
-        let endPoint = baseUrl + "/users/\(forUserName)/followers?per_page=100&page=\(page)"
+    func getFollowers(forUserName: String, page: Int, completed: @escaping (Result<[Follower], GFError>) -> Void) {
+        let endPoint = baseUrl + "\(forUserName)/followers?per_page=100&page=\(page)"
         
         guard let url = URL(string: endPoint) else {
-            completed(nil, "This username created and invalid request")
+            completed(.failure(.invalidUserName))
             return
         }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let _ = error {
-                completed(nil, "Unable to complete your request. Please check your Internet")
+                completed(.failure(.unableToComplete))
             }
        
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(nil, "Invalid response from the server. Please try again")
+                completed(.failure(.invalidResponse))
                 return
                 
             }
             
             guard let data = data else {
-                completed(nil, "Data recieved from server was invalid")
+                completed(.failure(.invalidData))
                 return
             }
             do {
@@ -40,9 +40,9 @@ class NetworkManager {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 
                 let followers = try decoder.decode([Follower].self, from: data)
-                completed(followers, nil)
+                completed(.success(followers))
             } catch{
-                completed(nil, "Data recieved from server was invalid")
+                completed(.failure(.invalidData))
             }
             
         }
