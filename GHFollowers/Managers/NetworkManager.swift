@@ -50,4 +50,40 @@ class NetworkManager {
         task.resume()
     }
     
+    func getUsers(forUserName: String, completed: @escaping (Result<User, GFError>) -> Void) {
+         let endPoint = baseUrl + "\(forUserName)"
+         guard let url = URL(string: endPoint) else {
+             completed(.failure(.invalidUserName))
+             return
+         }
+         
+         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+             if let _ = error {
+                 completed(.failure(.unableToComplete))
+             }
+        
+             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                 completed(.failure(.invalidResponse))
+                 return
+                 
+             }
+             
+             guard let data = data else {
+                 completed(.failure(.invalidData))
+                 return
+             }
+             do {
+                 let decoder = JSONDecoder()
+                 decoder.keyDecodingStrategy = .convertFromSnakeCase
+                 
+                 let user = try decoder.decode(User.self, from: data)
+                 completed(.success(user))
+             } catch{
+                 completed(.failure(.invalidData))
+             }
+             
+         }
+         task.resume()
+     }
+    
 }
