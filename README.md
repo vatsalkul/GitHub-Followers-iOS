@@ -10,7 +10,6 @@ Get details of a GitHub user.
 ## How to use
 Just download source code and open project in Xcode 11 or higher.
 
-__NOTE: This app is built using SwiftUI which will run on iOS 13 only.__
 
 **Using Terminal:**
 ```
